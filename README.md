@@ -1,3 +1,2 @@
-# project
-Summer Project 2023 <br>
-Authors: Minh, Dhruv, Andy, Randy
+# Project_SkillTree
+A Summer Project created and developed by Minh, Dhruv, Andy, Randy.
