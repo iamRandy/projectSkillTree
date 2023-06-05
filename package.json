@@ -1,0 +1,27 @@
+{
+  "name": "projectskilltree",
+  "version": "1.0.0",
+  "description": "Summer Project 2023 <br> Authors: Minh, Dhruv, Andy, Randy",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamRandy/projectSkillTree.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamRandy/projectSkillTree/issues"
+  },
+  "homepage": "https://github.com/iamRandy/projectSkillTree#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongoose": "^7.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
