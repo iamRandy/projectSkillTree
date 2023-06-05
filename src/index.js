@@ -37,7 +37,7 @@ app.post("/signup", async (req, res) => {
 }) 
 
 app.post('/login', async (req, res) => {
-
+// There's an error to this code
     try {
         const checkData = await collection.findOne({username:req.body.username})
 
