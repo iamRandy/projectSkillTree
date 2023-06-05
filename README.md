@@ -15,3 +15,11 @@ mongodb connects to a mongo database - on your local machine
 To start the server
 in vscode terminal, type "git run dev"
 then check your http://localhost:3000/ on your chrome or whatever you use
+
+Download Mongo
+terminal type
+mongosh
+shows dbs
+use Skillgrove
+show collections
+db.users.find()

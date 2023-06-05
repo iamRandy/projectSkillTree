@@ -19,6 +19,8 @@ const LoginSchema = new mongoose.Schema({
     }
 })
 
+// make a schema signup
+
 const collection = new mongoose.model("users", LoginSchema);
 
 module.exports = collection;
