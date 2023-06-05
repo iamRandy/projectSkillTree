@@ -74,6 +74,11 @@ function checkCollision(circle1, circle2) {
 
     var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 
+    console.log(curCircles);
+
+    // console.log(`Circle1: ${circle1.offsetLeft} .. ${circle1.offsetWidth}`);
+    // console.log(`Circle2: ${circle2.offsetLeft} .. ${circle2.offsetWidth}`);
+    // console.log(`X1: ${x1} y1: ${y1} x2: ${x2} y2: ${y2}`);
     return distance <= radius1 + radius2;
 }
 
