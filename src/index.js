@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require("path");
 // const hbs = require("hbs");
-const ejs = require('ejs')
+const ejs = require('ejs');
 const userCollection = require('./mongodb');
 
 const templatePath = path.join(__dirname, "../templates")
@@ -45,7 +45,7 @@ app.post('/login', async (req, res) => {
         {
             const username = req.body.username;
             console.log(username);
-            res.render("home", {username: "Dhruv"})
+            res.render("home", {username: username})
         }
         else
         {
