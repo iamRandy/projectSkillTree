@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const url = "mongodb://localhost:27017/SkillGrove";
 
-mongoose.connect("mongodb://localhost:27017/SkillGrove")
+mongoose.connect(url)
 .then(() => {
     console.log("mongo connected");
 })
@@ -19,8 +20,8 @@ const LoginSchema = new mongoose.Schema({
     }
 })
 
-// make a schema signup (but unsure if making one will create a new collection)
+// make a schema signup (but unsure if making one will create a new )
 
-const collection = new mongoose.model("users", LoginSchema);
+const userCollection = new mongoose.model("users", LoginSchema);
 
-module.exports = collection;
+module.exports = userCollection;
