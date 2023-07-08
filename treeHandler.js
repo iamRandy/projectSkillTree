@@ -59,10 +59,50 @@ function createCircle() {
     newCircle.style.position = 'absolute';
     newCircle.style.top = getRandomValue(minY + offset, maxY - offset) + 'px';
     newCircle.style.left = getRandomValue(minX + offset, maxX - offset) + 'px';
-
+    
     curCircles.push(newCircle); // Pushes the new circle to the array of current circles to keep track
-    newCircle.classList.toggle('center');
-    return newCircle;
+    container.append(newCircle); // Append the circle element to the container
+
+    var startPosX = newCircle.offsetLeft;
+    var startPosY = newCircle.offsetTop;
+    var targetPosX = (window.innerWidth - size) / 2;
+    var targetPosY = (window.innerHeight - size) / 2;
+    var duration = 2000; // Animation duration in milliseconds
+    var startTime = null;
+
+    function animate(currentTime) {
+        if (!startTime) startTime = currentTime;
+        var elapsed = currentTime - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var newPosLeft = startPosX + (targetPosX - startPosX) * progress;
+        var newPosTop = startPosY + (targetPosY - startPosY) * progress;
+        
+        // Check for collisions with other bubbles
+        var hasCollision = false;
+        for (var i = 0; i < curCircles.length; i++) {
+          if (newCircle !== curCircles[i] && checkCollision(newCircle, curCircles[i])) {
+            hasCollision = true;
+            break;
+          }
+        }
+        
+        if (hasCollision) {
+          // Handle collision by slightly adjusting the position
+          newPosLeft += getRandomValue(-10, 10);
+          newPosTop += getRandomValue(-10, 10);
+        }
+        
+        newCircle.style.left = newPosLeft + "px";
+        newCircle.style.top = newPosTop + "px";
+    
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      }
+    
+      requestAnimationFrame(animate);
+    
+      return newCircle;
 
 }
 
@@ -79,8 +119,8 @@ function checkCollision(circle1, circle2) {
 
     // console.log(curCircles);
 
-    console.log(`Circle1: ${circle1.offsetLeft} .. ${circle1.offsetWidth}`);
-    console.log(`Circle2: ${circle2.offsetLeft} .. ${circle2.offsetWidth}`);
+    // console.log(`Circle1: ${circle1.offsetLeft} .. ${circle1.offsetWidth}`);
+    // console.log(`Circle2: ${circle2.offsetLeft} .. ${circle2.offsetWidth}`);
     // console.log(`X1: ${x1} y1: ${y1} x2: ${x2} y2: ${y2}`);
     return distance <= radius1 + radius2;
 }

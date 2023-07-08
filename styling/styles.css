@@ -48,16 +48,6 @@ table {
 	border-spacing: 0;
 }
 
-.circle {
-    position: absolute;
-    left:50%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgb(66, 66, 66);
-    transition: transform 0.5s ease-in-out;
-}
-
 .circleContainer {
     /* position: absolute; */
     background-color: #F1F7ED;
@@ -85,11 +75,28 @@ table {
     position: relative;
 }
 
-.circle.center { /*supposed to push all bubbles to the center of the screen */
-
-    transform: translate(-50%, -50%);
-
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(66, 66, 66);
+    transition: transform 0.5s ease-in-out;
 }
+
+.circle.center {
+    animation: floatToCenter 2s forwards;
+}
+
+@keyframes floatToCenter {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(calc(50% - 25px), calc(50% - 25px));
+    }
+}
+  
 
 /* 
 smaller-div {
