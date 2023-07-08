@@ -50,17 +50,20 @@ function createCircle() {
 
     var randomValues = getRandom();
     
+    var offset = 30;
     var minX = randomValues[0];
     var maxX = randomValues[1];
     var minY = randomValues[2];
     var maxY = randomValues[3];
 
     newCircle.style.position = 'absolute';
-    newCircle.style.top = getRandomValue(minY, maxY) + 'px';
-    newCircle.style.left = getRandomValue(minX, maxX) + 'px';
+    newCircle.style.top = getRandomValue(minY + offset, maxY - offset) + 'px';
+    newCircle.style.left = getRandomValue(minX + offset, maxX - offset) + 'px';
 
     curCircles.push(newCircle); // Pushes the new circle to the array of current circles to keep track
+    newCircle.classList.toggle('center');
     return newCircle;
+
 }
 
 function checkCollision(circle1, circle2) { 
