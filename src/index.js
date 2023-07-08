@@ -33,7 +33,7 @@ app.post("/signup", async (req, res) => {
     await userCollection.insertMany([data]);
 
     // Directs to homepage after submitting form
-    res.render("home")
+    res.render("home", data)
 
 }) 
 
