@@ -6,7 +6,7 @@ const ejs = require('ejs');
 const userCollection = require('./mongodb');
 
 const templatePath = path.join(__dirname, "../templates")
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.set("view engine", "ejs");
