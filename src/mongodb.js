@@ -19,7 +19,7 @@ const LoginSchema = new mongoose.Schema({
     }
 })
 
-// make a schema signup (but unsure if making one will create a new )
+// make a schema signup? (but unsure if making one will create a new )
 
 const userCollection = new mongoose.model("users", LoginSchema);
 
