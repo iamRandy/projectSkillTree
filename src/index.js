@@ -4,6 +4,8 @@ const path = require("path");
 // const hbs = require("hbs");
 const ejs = require('ejs');
 const userCollection = require('./mongodb');
+const mongoose = require('mongoose');
+const url = "mongodb://localhost:27017/SkillGrove";
 
 const templatePath = path.join(__dirname, "../templates")
 const PORT = process.env.PORT || 3000;
@@ -12,6 +14,17 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", templatePath);
 app.use(express.urlencoded())
+
+mongoose.set('strictQuery', false)
+const connectDB = async ()=> {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
+}
 
 // render signup page as the original screen
 app.get("/", (req, res) => {
@@ -72,3 +85,9 @@ app.post('/login', async (req, res) => {
 app.listen(PORT, () => {
     console.log('port connected', PORT)
 })
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Listening on port ${PORT}`)
+    })
+});
