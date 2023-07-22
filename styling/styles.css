@@ -48,7 +48,7 @@ table {
 	border-spacing: 0;
 }
 
-.circleContainer {
+#circleContainer {
     /* position: absolute; */
     background-color: #F1F7ED;
     width: 100vw;
