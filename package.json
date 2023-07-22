@@ -2,7 +2,7 @@
   "name": "projectskilltree",
   "version": "1.0.0",
   "description": "Summer Project 2023 <br> Authors: Minh, Dhruv, Andy, Randy",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
   },
