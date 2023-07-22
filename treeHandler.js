@@ -82,7 +82,7 @@ function createCircle() {
         for (var i = 0; i < curCircles.length; i++) {
           if (newCircle !== curCircles[i] && checkCollision(newCircle, curCircles[i])) {
             hasCollision = true;
-            break;
+            return;
           }
         }
         
