@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const path = require("path");
@@ -8,7 +10,7 @@ const mongoose = require('mongoose');
 const url = "mongodb://localhost:27017/SkillGrove";
 
 const templatePath = path.join(__dirname, "../templates")
-const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.set("view engine", "ejs");
@@ -82,9 +84,9 @@ app.post('/login', async (req, res) => {
 })
 
 // Check to see if server is working
-app.listen(PORT, () => {
-    console.log('port connected', PORT)
-})
+// app.listen(PORT, () => {
+//     console.log('port connected', PORT)
+// })
 
 connectDB().then(() => {
     app.listen(PORT, () => {
