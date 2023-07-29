@@ -41,6 +41,7 @@ app.get("/login", (req, res) => {
 app.post("/signup", async (req, res) => {
 
     const data = {
+        // hash password, make sure username is valid (not just one letter), make sure it's not in use)
         username: req.body.username,
         password: req.body.password
     }
