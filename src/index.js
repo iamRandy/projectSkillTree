@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const url = "mongodb://localhost:27017/SkillGrove";
 
 const templatePath = path.join(__dirname, "../templates")
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8888;
 
 app.use(express.json());
 app.set("view engine", "ejs");
