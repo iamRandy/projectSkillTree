@@ -1,28 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -30,7 +6,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    overflow-y: hidden; /* hide vertical scrolling */
+    margin: 0px;
 }
 ol, ul {
 	list-style: none;
@@ -56,12 +32,42 @@ table {
     border: solid 1px black;
 }
 
-.container {
+#newElements {
     border: solid 1px black;
-    width: 100vw;
-    height: 94.5vh;
+    height: 89vh;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
+.buttonEffect {
+    display: inline-block;
+    padding: 20px 20px;
+    background-color: transparent; /* Transparent background */
+    color: #007bff; /* Change this to your desired button text color */
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .buttonEffect::before {
+    content: "";
+    position: absolute;
+    top: 10%; /* Adjust this value to center the smaller effect vertically */
+    left: 10%; /* Adjust this value to center the smaller effect horizontally */
+    right: 10%;
+    bottom: 10%;
+    border: 2px solid #FFF; /* Change this to your desired outline color */
+    border-radius: 50%; /* Match this value with your button's border-radius */
+    z-index: -1; /* Set a lower z-index to place it behind the content */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .buttonEffect:hover::before {
+    z-index: 2; /* Set a higher z-index on hover to bring it above the content */
+    opacity: 1;
+  }
+  
 .row {
     border: solid 1px black;
 }
@@ -69,6 +75,10 @@ table {
 .button {
     border: solid 1px rgb(254, 12, 12);
     width: 100%;
+}
+
+#addButton:hover {
+    background-color: #212529;
 }
 
 #buttonContainer {

@@ -35,7 +35,6 @@ addButton.addEventListener('click', function() { // adding functionality to the 
 });
 
 function createCircle() {
-    var multiplier = parseInt(prompt("Size of Circle:"));
 
     const newCircle = document.createElement("div");
     newCircle.className = "circle";
@@ -43,7 +42,7 @@ function createCircle() {
     newCircle.id = "circle" + numCircles;
     numCircles++;
 
-    var size = multiplier * 50;
+    var size = 100;
 
     newCircle.style.width = size + "px";
     newCircle.style.height = size + "px";
@@ -59,6 +58,7 @@ function createCircle() {
     newCircle.style.position = 'absolute';
     newCircle.style.top = getRandomValue(minY + offset, maxY - offset) + 'px';
     newCircle.style.left = getRandomValue(minX + offset, maxX - offset) + 'px';
+    newCircle.classList.add("buttonEffect")
     
     curCircles.push(newCircle); // Pushes the new circle to the array of current circles to keep track
     container.append(newCircle); // Append the circle element to the container
@@ -107,6 +107,7 @@ function createCircle() {
 }
 
 function checkCollision(circle1, circle2) { 
+    var spacing = 10;
     var x1 = circle1.offsetLeft + circle1.offsetWidth / 2; // getting center of circle
     var y1 = circle1.offsetTop + circle1.offsetHeight / 2;
     var x2 = circle2.offsetLeft + circle2.offsetWidth / 2;
@@ -122,7 +123,7 @@ function checkCollision(circle1, circle2) {
     // console.log(`Circle1: ${circle1.offsetLeft} .. ${circle1.offsetWidth}`);
     // console.log(`Circle2: ${circle2.offsetLeft} .. ${circle2.offsetWidth}`);
     // console.log(`X1: ${x1} y1: ${y1} x2: ${x2} y2: ${y2}`);
-    return distance <= radius1 + radius2;
+    return distance <= radius1 + radius2 + spacing;
 }
 
 
