@@ -1,5 +1,7 @@
 var container = document.getElementById('newElements');
 var addButton = document.getElementById('addButton');
+var editorSec = document.getElementById('editorSection');
+
 var numCircles = 0; 
 var curCircles = []; // List of all the current trees on the screen
 
@@ -58,7 +60,24 @@ function createCircle() {
     newCircle.style.position = 'absolute';
     newCircle.style.top = getRandomValue(minY + offset, maxY - offset) + 'px';
     newCircle.style.left = getRandomValue(minX + offset, maxX - offset) + 'px';
-    newCircle.classList.add("buttonEffect")
+    newCircle.classList.add("buttonEffect");
+
+    newCircle.addEventListener('click', function() { // Bubble selection feature
+        for(const cir of curCircles) {
+            if(cir.classList.contains("selected")){
+                cir.classList.remove("selected");
+                cir.classList.toggle("buttonEffect");
+            }
+        }
+        newCircle.classList.toggle("selected");
+        newCircle.classList.toggle("buttonEffect");
+        
+        for(const section of editorSec.children) {
+            if(section.id=='bubbleName') {
+                section.classList.toggle("inactive");
+            }
+        }
+    })
     
     curCircles.push(newCircle); // Pushes the new circle to the array of current circles to keep track
     container.append(newCircle); // Append the circle element to the container

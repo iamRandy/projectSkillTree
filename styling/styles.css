@@ -6,7 +6,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    margin: 0px;
+    margin: 0;
 }
 ol, ul {
 	list-style: none;
@@ -27,7 +27,6 @@ table {
 #circleContainer {
     /* position: absolute; */
     background-color: #F1F7ED;
-    width: 100vw;
     height: 100vh;
     border: solid 1px black;
 }
@@ -56,7 +55,7 @@ table {
     left: 10%; /* Adjust this value to center the smaller effect horizontally */
     right: 10%;
     bottom: 10%;
-    border: 2px solid #FFF; /* Change this to your desired outline color */
+    border: 2px solid #E0EEC6; /* Change this to your desired outline color */
     border-radius: 50%; /* Match this value with your button's border-radius */
     z-index: -1; /* Set a lower z-index to place it behind the content */
     opacity: 0;
@@ -66,6 +65,28 @@ table {
   .buttonEffect:hover::before {
     z-index: 2; /* Set a higher z-index on hover to bring it above the content */
     opacity: 1;
+  }
+
+  .selected {
+    display: inline-block;
+    padding: 20px 20px;
+    background-color: transparent; /* Transparent background */
+    color: #007bff; /* Change this to your desired button text color */
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+  }
+
+  .selected::before {
+    content: "";
+    position: absolute;
+    top: 10%; /* Adjust this value to center the smaller effect vertically */
+    left: 10%; /* Adjust this value to center the smaller effect horizontally */
+    right: 10%;
+    bottom: 10%;
+    border: 3px solid #F1F7ED; /* Change this to your desired outline color */
+    border-radius: 50%; /* Match this value with your button's border-radius */
+    z-index: 3; /* Set a lower z-index to place it behind the content */
   }
   
 .row {
@@ -78,7 +99,11 @@ table {
 }
 
 #addButton:hover {
-    background-color: #212529;
+    background-color: #243E36;
+}
+
+#addButton {
+    background-color: #243E36;
 }
 
 #buttonContainer {
@@ -90,7 +115,7 @@ table {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgb(66, 66, 66);
+    background-color: #7CA982;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -105,6 +130,10 @@ table {
     100% {
         transform: translate(calc(50% - 25px), calc(50% - 25px));
     }
+}
+
+.inactive {
+    display: none;
 }
   
 

@@ -10,25 +10,35 @@
     
     <body>
         <div class="container-fluid" style="background-color: #243E36; color: white;">
-    
             <div class="text">
                 <h4>SkillGrove<br></h4>
                 <small class="font-italic" style="font-size: smaller;">ver 0.01</small>
             </div>
+        
+            <!-- Added the div with "row" class to create a row for columns -->
+            <div class="row">
+                <div class="col-2"> <!-- First column -->
+                    FRIENDS
+                </div>
+        
+                <div class="col-8" id="circleContainer"> <!-- Second column -->
+                    <div class="container" id="newElements">
+                        <button id="addButton" type="button" class="btn btn-dark buttonEffect" style="position:absolute; font-size: 25px; border-radius: 50%; height: 50px; width: 50px;">
+                            +
+                        </button>
+                    </div>
+                </div>
+        
+                <div class="col-2" id="editorSection"> <!-- Third column -->
+                    <h3>EDITOR</h3>
+                    <h6 class="small">Select a bubble to edit</h6>
 
-            <div class="container-fluid" id="circleContainer">
-
-                <div class="container" id="newElements">
-
-                    <button id="addButton" type="button" class="btn btn-dark buttonEffect" style="position:absolute; font-size: 25px; border-radius: 50%; height: 50px; width: 50px;">
-                        +
-                    </button>
-
-                </div> 
-
+                    <p id="bubbleName" class="inactive">Name goes here</p>
+                    
+                </div>
             </div>
-
         </div>
+        
 
         <script src="treeHandler.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
